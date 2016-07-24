@@ -1,0 +1,235 @@
+* {
+  boxsizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: #1b1010;
+  overflow-x:hidden;
+  overflow-y:scroll;
+}
+.hide-scroll{
+ overflow-y:hidden; 
+}
+
+
+@keyframes mid {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+ul li {
+  list-style: none;
+}
+
+.landing {
+  background: url("https://pixabay.com/static/uploads/photo/2015/03/26/10/48/water-692027_960_720.jpg") center fixed;
+  background-size: cover;
+  width: 100%;
+  min-height: 760px;
+  color: white;
+}
+
+.nav-options {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+  top: 0px;
+}
+@media (max-width: 500px) {
+  .nav-options {
+    text-align: left;
+  }
+}
+.nav-options ul {
+  background: #141230;
+  opacity: .8;
+  padding-top: 160px;
+  width: 100%;
+  min-height: 750px;
+}
+.nav-options ul li {
+  color: #F7F7F7;
+  cursor: pointer;
+}
+.nav-options ul li:hover {
+  color: white;
+  text-decoration: underline;
+}
+.nav-options h1 {
+  color: white;
+  text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.8);
+  font-family: 'montserrat';
+  margin-bottom: 30px;
+  font-size: 4em;
+  cursor: pointer;
+}
+.nav-options h1:hover {
+  color: #9B9CBD;
+  font-size: 4.1em;
+  text-decoration: underline;
+}
+
+nav {
+  background: black;
+  opacity: .8;
+  width: 100%;
+  padding: 0px 50px 0 60px;
+}
+nav h2 {
+  font-family: 'Lobster', cursive;
+  z-index: 2;
+  text-shadow: -5px 2px 4px rgba(137, 59, 59, 0.7);
+  color: white;
+}
+nav .bar {
+  cursor: pointer;
+  width: 40px;
+  height: 3px;
+  margin-bottom: 8px;
+  background: white;
+  position: absolute;
+  z-index: 20;
+}
+nav .bar:nth-child(1) {
+  transform: rotate(0deg);
+  transition-duration: .2s;
+  top: -25px;
+}
+nav .bar:nth-child(2) {
+  top: -30px;
+}
+nav .bar:nth-child(3) {
+  top: -35px;
+  transform: rotate(0deg);
+  transition-duration: .2s;
+}
+nav .nav-menu {
+  cursor: pointer;
+  position: relative;
+  padding-right: 25px;
+  height: 100%;
+  float: right;
+}
+nav .nav-menu .top {
+  width: 30px;
+  top: -30px;
+  transform: rotate(60deg);
+  transition-duration: .5s;
+  transition-timing-function: linear;
+}
+nav .nav-menu .middle {
+  opacity: 0;
+}
+nav .nav-menu .bottom {
+  width: 30px;
+  top: -30px;
+  transform: rotate(-60deg);
+  transition-duration: .5s;
+  transition-timing-function: linear;
+}
+
+.about {
+  min-height: 760px;
+  width: 100%;
+}
+.about .container {
+  padding: 3%;
+  color: #29DA8A;
+  text-indent: 4%;
+}
+.about .container h2, .about .container strong {
+  color: red;
+  text-align: center;
+  font-style: italic;
+  font-family: 'Roboto', sans-serif;
+}
+
+.gallery {
+  min-height: 760px;
+  background: orange;
+}
+.gallery h2 {
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 12px rgba(53, 27, 27, 0.9);
+  padding-top: 15px;
+}
+.gallery .row {
+  width: 90%;
+  margin: 0 auto;
+}
+.gallery .col-xs-6 {
+  padding: 5px;
+}
+
+footer {
+  padding-right: 15px;
+  color: white;
+  text-align: right;
+}
+/*animate.css*/
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+
