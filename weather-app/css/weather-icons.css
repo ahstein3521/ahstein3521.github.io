@@ -1,0 +1,110 @@
+/*!
+ *  Weather Icons 2.0.8
+ *  Updated September 19, 2015
+ *  Weather themed icons for Bootstrap
+ *  Author - Erik Flowers - erik@helloerik.com
+ *  Email: erik@helloerik.com
+ *  Twitter: http://twitter.com/Erik_UX
+ *  ------------------------------------------------------------------------------
+ *  Maintained at http://erikflowers.github.io/weather-icons
+ *
+ *  License
+ *  ------------------------------------------------------------------------------
+ *  - Font licensed under SIL OFL 1.1 -
+ *    http://scripts.sil.org/OFL
+ *  - CSS, SCSS and LESS are licensed under MIT License -
+ *    http://opensource.org/licenses/mit-license.html
+ *  - Documentation licensed under CC BY 3.0 -
+ *    http://creativecommons.org/licenses/by/3.0/
+ *  - Inspired by and works great as a companion with Font Awesome
+ *    "Font Awesome by Dave Gandy - http://fontawesome.io"
+ */
+@font-face {
+  font-family: 'weathericons';
+  src: url('../font/weathericons-regular-webfont.eot');
+  src: url('../font/weathericons-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../font/weathericons-regular-webfont.woff2') format('woff2'), url('../font/weathericons-regular-webfont.woff') format('woff'), url('../font/weathericons-regular-webfont.ttf') format('truetype'), url('../font/weathericons-regular-webfont.svg#weather_iconsregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.wi {
+  display: inline-block;
+  font-family: 'weathericons';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.wi-fw {
+  text-align: center;
+  width: 1.4em;
+}
+.wi-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.wi-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.wi-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+.wi-flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+.wi-flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+.wi-forecast-io-clear-day:before {
+  content: "\f00d";
+}
+.wi-forecast-io-clear-night:before {
+  content: "\f02e";
+}
+.wi-forecast-io-rain:before {
+  content: "\f019";
+}
+.wi-forecast-io-snow:before {
+  content: "\f01b";
+}
+.wi-forecast-io-sleet:before {
+  content: "\f0b5";
+}
+.wi-forecast-io-wind:before {
+  content: "\f050";
+}
+.wi-forecast-io-fog:before {
+  content: "\f014";
+}
+.wi-forecast-io-cloudy:before {
+  content: "\f013";
+}
+.wi-forecast-io-partly-cloudy-day:before {
+  content: "\f002";
+}
+.wi-forecast-io-partly-cloudy-night:before {
+  content: "\f031";
+}
+.wi-forecast-io-hail:before {
+  content: "\f015";
+}
+.wi-forecast-io-thunderstorm:before {
+  content: "\f01e";
+}
+.wi-forecast-io-tornado:before {
+  content: "\f056";
+}

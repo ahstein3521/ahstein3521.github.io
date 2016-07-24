@@ -1,0 +1,43 @@
+@import url(https://fonts.googleapis.com/css?family=Anton|Bree+Serif|Cuprum);
+
+body {
+  font-family: 'Cuprum', sans-serif;
+  margin: 0;
+  padding:0;
+  width: 100%;
+  min-height: 700px;
+  text-align: center;
+  overflow: hidden;
+}
+.warning{
+  color:red;
+  height:50px;
+}
+.data{
+  background:#c5f9e0;
+  opacity: 0.7;
+  width:50%;
+  margin:50px auto;
+}
+.title{
+  color:#251adc;
+}
+.display {
+  font-family: "anton",serif;
+  cursor:pointer;
+  color:#081fb1;
+
+}
+
+.condition {
+  font-family: 'Bree Serif', serif;
+  text-transform: capitalize;
+}
+ footer{
+  margin: 0;
+  width:100%;
+  position: absolute;
+  background: lightgrey;
+  opacity: .8;
+  bottom: 0px; 
+ }
