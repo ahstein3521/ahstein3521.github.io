@@ -26,4 +26,7 @@ $(".nav-menu").click(function(){
                    .toggleClass("fadeOut")
  
   $("body").toggleClass("hide-scroll");
+
+  if($("body").hasClass())
+
 }) 

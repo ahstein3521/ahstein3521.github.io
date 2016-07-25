@@ -54,8 +54,8 @@ ul li {
   width: 100%;
   min-height: 750px;
 }
-.nav-options ul li {
-  color: #F7F7F7;
+.nav-options ul li a {
+  color: #cce8ff;
   cursor: pointer;
 }
 .nav-options ul li:hover {
