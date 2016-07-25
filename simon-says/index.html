@@ -1,11 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-   
-  </head>
-  <body>
-    <div class="app"></div>
-  </body>
-  <script src="bundle.js"></script>
+  	<head>
+  		<meta charset="utf-8">
+  		<title>Simon Says</title>
+    	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    	<link rel="stylesheet" type="text/css" href="style.css">
+  	</head>
+  	<body>
+ 		<div class="container">
+  			<div>
+  				<div class="color-buttons">
+  					<button class="red"></button>
+    				<button class="green"></button>
+    				<button class="blue"></button>
+    				<button class="yellow"/></button>
+  				</div>
+    			<div class='control-panel'>
+        			<h3>Simon</h3>
+        			<span class='glyphicon glyphicon-copyright-mark'></span>
+        			<span class='display'></span>
+        			<div class='group'>
+          				<span class='light'></span>
+          				<div>
+            				<input type="submit" class="start" value=""/>
+            				<label>Start</label>
+          				</div>
+          				<div>
+            				<input type="submit" class="strict" value=""/>
+            				<label>Strict</label>
+          				</div>
+          			</div>	  
+      				<div class='on-off'>
+        				<p>Off</p>
+        				<div class='slider'>
+          					<button class="btn btn-sm off"/>
+         				</div>
+         				<p>On</p>
+      				</div>   
+   				</div>   
+			</div>
+		</div>
+		<footer>
+ 			<a href="#">View Repository</a>
+  			<p>Adam Stein &copy 2016</p>
+  		</footer>	
+  		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>   
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  		<script type="text/javascript" src="main.js"></script>
+  	</body>
 </html>

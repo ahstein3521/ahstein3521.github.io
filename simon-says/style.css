@@ -1,0 +1,164 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:700);
+body {
+  width: 100%;
+  background: #84b085;
+}
+
+.container {
+  padding: 20px;
+  margin: 50px auto;
+  width: 25%;
+  border-radius: 100%;
+  position: relative;
+  display: flex;
+  text-align: center;
+}
+
+.red {
+  background:#ff0707;
+  outline: none;
+  border-radius: 100% 0 0;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border: 20px solid black;
+}
+
+.blue {
+  background: #1b1bcd;
+  outline: none;
+  border-radius: 0 0 0 100%;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 200px;
+  left: 0px;
+  border: 20px solid black;
+}
+
+.green {
+  background:#11b911;
+  outline: none;
+  border-radius: 0 100% 0 0;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 0px;
+  left: 200px;
+  border: 20px solid black;
+}
+
+.yellow {
+  background:#fbff07;
+  outline: none;
+  border-radius: 0 0 100%;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  border: 20px solid black;
+}
+
+.control-panel {
+  background:#d1c9c9;
+  border: 15px solid black;
+  width: 250px;
+  height: 250px;
+  border-radius: 100%;
+  position: absolute;
+  left: 75px;
+  top: 70px;
+  color: #345540;
+}
+.control-panel h3 {
+  font-size: 2em;
+  margin-top: 50px;
+}
+.control-panel span {
+  font-size: .5em;
+  left: 50px;
+  top: -45px;
+}
+.control-panel .display {
+  background: #345;
+  width: 60px;
+  height: 40px;
+  border-radius: 5px;
+  position: absolute;
+  left: 15px;
+  top: 100px;
+  color: red;
+  font-size: 2em;
+  padding-top: 1px;
+}
+.control-panel .group {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: 140px;
+  top: 110px;
+  font-size: .7em;
+  width: 25%;
+}
+.control-panel .group .start {
+  background: #A90808;
+  border-radius: 100%;
+  outline: none;
+  box-shadow: 2px 1px 2px rgba(0,0,0,.6);
+}
+.control-panel .group .strict {
+  background: #CECE38;
+  border-radius: 100%;
+  outline: none;
+  box-shadow: 2px 1px 2px rgba(0,0,0,.6);
+}
+.control-panel .group .light {
+  width: 5px;
+  height: 7px;
+  position: absolute;
+  left: 42px;
+  top: -12px;
+  border-radius: 100px;
+  background: #345;
+}
+
+.on-off {
+  display: flex;
+  width: 100px;
+  justify-content: space-between;
+  position: absolute;
+  top: 180px;
+  left: 60px;
+  color: #5A1C1C;
+}
+.on-off .slider {
+  width: 35px;
+  height: 18px;
+  border-radius: 4px;
+  background: #32380D;
+}
+.on-off .on, .on-off .off {
+  background: #B75C33;
+  float: left;
+  height: 18px;
+  vertical-align: center;
+}
+.on-off .on {
+  float: right;
+}
+.control-panel .group .light-on{
+  background:#ff4330;
+}
+label {
+  font-size: .8em;
+}
+ footer{
+  text-align: center;
+  margin: 0;
+  width:100%;
+  position: absolute;
+  bottom: 0px; 
+ }
