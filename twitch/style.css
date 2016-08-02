@@ -1,9 +1,22 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
 body {
   width: 100%;
+  margin-bottom:50px;
   background: #352135;
 }
+
 nav{
   background: white;
+  color:#1faa95;
+  padding-right: 360px;
+  padding-left: 360px;
+}
+.navbar-brand{
+  font-family: monospace;
+  font-size: 1.4em;
 }
 .container {
   width: 50%;
@@ -23,33 +36,43 @@ img:hover{
   opacity: 0;
   cursor: pointer;
 }
-.back-btn{
+.back-btn, .follow-btn{
   opacity: 0;
   color:#ededf9;
   background: none;
   border:none;
+  margin-right: 20px;
+}
+.back-btn:hover, .follow-btn:hover{
+  color:#d4f975;
 }
 
-/*input[type="text"] {
-  width: 70%;
-  height: 50px;
-  border-radius: 20px;
-  text-indent: 15px;
-  outline: none;
-  color: blue;
-  background: #FFD8FE;
-  position: relative;
-  left: 10%;
+.footer{
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  height:50px;
+  width: 100%;
+  background: #cadbd8;
 }
-*/
-@media screen and (max-width: 760px) {
+.footer p{
+  margin:0;
+}
+@media screen and (max-width: 950px) {
   .container {
     width: 90%;
+    margin-top:130px;
+  }
+   nav{
+    padding: 10px;
   }
 }
 @media screen and (max-width: 400px) {
   .container {
     font-size: .8em;
+    margin-top: 140px;
     width: 95%;
   }
 }
+
+

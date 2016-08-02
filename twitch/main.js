@@ -4,7 +4,7 @@ var DefaultUserList = ['medrybw',"freecodecamp", "storbeck", "terakilobyte",
 
 var EndPoint='https://api.twitch.tv/kraken/';
 var Default_IMG="https://placeholdit.imgix.net/~text?txtsize=33&txt=ImageNotAvailable&w=300&h=300"; 
-
+var ScrollTop=70;
 
 var ListItem=function(props){
 	var img=props.logo? props.logo: Default_IMG;
@@ -22,13 +22,14 @@ var Option=(val)=>{ return "<option value="+val+">"}
 var UserList=function(){
   this.totalUsers=[];
   this.options=["All","Online","Offline"].concat(DefaultUserList);
+  this.searchResult={};//temporary variable 
 }
 
 UserList.prototype.init=function(){
 	if(typeof localStorage["twitch_users"]!="undefined"){
 		this.totalUsers=JSON.parse(localStorage.getItem("twitch_users"));
 		this.options=JSON.parse(localStorage.getItem("menu-options"));
-		this.render();
+		this.render(this.totalUsers);
 	}else{
 		localStorage.setItem("menu-options",JSON.stringify(this.options));
 		this.fetch(DefaultUserList);
@@ -68,14 +69,11 @@ UserList.prototype.fetch=function(USERS){
 	         	if(arr.length>=len || len==0 && arr.length==DefaultUserList.length){
 	           		
 	           		arr.sort((a,b)=>{return b.order-a.order})
-	           		localStorage.setItem("twitch_users",JSON.stringify(arr));
-	    		 	_this.totalUsers=arr; 
-	    		 	if(USERS.length==1){
-	    		 		_this.addOption(user.display_name);
-	    		 		return _this.render([user]);
-	    		 	} 
 	    		 	
-	    		    return _this.render();
+	    		 	if(USERS.length==1){
+	    		 		return _this.renderQuery(user);
+	    		 	} 
+	    		    return _this.update(arr);
 	         	}//only sort and update totalUsers after final iteration, but within the async context
 	      	})    
 	    }) 
@@ -84,15 +82,23 @@ UserList.prototype.fetch=function(USERS){
 
 UserList.prototype.removeUser=function(index,option){
 	var newList=this.totalUsers.slice(0,index).concat(this.totalUsers.slice(index+1));
-	var conf=confirm("Are you sure you want to delete this user?");
-	if(conf){
-		this.totalUsers=newList;
-		localStorage.setItem("twitch_users",JSON.stringify(newList));
-		$(".back-btn").hide();
-		this.render(newList);
-		this.removeOption(option);
-	}
+	this.update(newList);
+	this.removeOption(option);
 }
+
+UserList.prototype.followUser=function(){
+	this.totalUsers.push(this.searchResult);
+	this.totalUsers.sort((a,b)=>{return b.order-a.order});
+    this.update(this.totalUsers);
+    this.addOption();
+}
+
+UserList.prototype.update=function(newList){
+	this.totalUsers=newList;
+	localStorage.setItem("twitch_users", JSON.stringify(newList));
+	this.render(newList)
+}
+
 UserList.prototype.getIndex=function(query){
 	 var res=-1;
 	 this.totalUsers.forEach(function(val,i){
@@ -103,29 +109,30 @@ UserList.prototype.getIndex=function(query){
 	 return res;
 }
 
-
 UserList.prototype.render=function(listToRender){
-	var opacity="1";
-	if(!listToRender){
-		listToRender=this.totalUsers;
-		opacity="0";
-	}
-	
+	var opacity=listToRender.length<this.totalUsers.length? "1":"0";
 	var list=listToRender.map((v)=>{return ListItem(v)}).join("")
-	 $(".list-group").html(list)
-	 $(".back-btn").css("opacity",opacity);
+	 
+	$(".list-group").html(list)
+	$(".back-btn").css("opacity",opacity);
+}
+UserList.prototype.renderQuery=function(query){
+	$(".follow-btn").css("opacity","1");
+	$(".back-btn").css("opacity","1");
+	this.searchResult=query;	
+	this.render([query]);
+}
+UserList.prototype.addOption=function(){
+	var newOption=this.searchResult.display_name;
+	this.options.push(newOption);
+	localStorage.setItem("menu-options",JSON.stringify(this.options));
+	$("datalist").append(Option(newOption));
 }
 
-UserList.prototype.addOption=function(opt){
-	this.options.push(opt);
-	localStorage.setItem("menu-options",JSON.stringify(this.options));
-	$("datalist").append(Option(opt));
-}
 UserList.prototype.removeOption=function(opt){
-	
+	console.log(opt);
 	var newList=this.options.filter((v)=>{return v.toLowerCase()!=opt.toLowerCase()})
-	 localStorage.setItem("menu-options",JSON.stringify(newList));
-		
+	localStorage.setItem("menu-options",JSON.stringify(newList));	
 }
 
 var userlist=new UserList();
@@ -140,7 +147,7 @@ function showButton(item,buttonIsVisible){
 function removeListItem(item){
 	var query=$(item).siblings("a").children("p").children("strong").text();
 	var index=userlist.getIndex(query);
-
+	console.log(query);
 
 	return userlist.removeUser(index,query);
 }
@@ -151,9 +158,9 @@ $(".search-btn").click(function(e){
 	var query=$("#user-options").val();
 	var index=userlist.getIndex(query);
 	e.preventDefault();
-	console.log(index,query)
+	
 	if(query=="All"){
-		return userlist.render();
+		return userlist.render(userlist.totalUsers);
 	}else if(query=="Online"){
 		return userlist.render(userlist.totalUsers.filter((v)=>{return v.order==2}))
 	}
@@ -168,6 +175,21 @@ $(".search-btn").click(function(e){
 })
 
 $(".back-btn").click(function(){
-	userlist.render();
+	$(".follow-btn").css("opacity","0");
+	userlist.render(userlist.totalUsers);
+})
+$(".follow-btn").click(function(){
+	$(this).css("opacity","0");
+   userlist.followUser();
+   userlist.render(userlist.totalUsers)
 })
 
+$(document).scroll(function(){
+	var top=$(this).scrollTop();
+	if(top>ScrollTop){
+		$("nav").css("background","#dfdaff").css("box-shadow","2px 2px 2px rgba(0,0,0,0.6)")
+		$(".search-btn").css("color","black");
+	}else{
+		$("nav").css("background","white").css("box-shadow","none");
+	}
+})

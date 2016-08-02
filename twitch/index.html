@@ -10,9 +10,7 @@
       <nav class="navbar navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-              <span>Twitch Users</span>
-            </a>
+            <span class="navbar-brand">Twitch User's Stream Status</span>
           </div>
           <form class='navbar-form navbar-right'>
             <fieldset class='form-group'>
@@ -20,19 +18,22 @@
                 <datalist id="users">
                 </datalist>
               </input>
-              <button class="search-btn">Search</button>
+              <button class="search-btn">Find User</button>
             </fieldset>  
           </form>
         </div>   
       </nav>
  		  <div class="container">
-        <button class="back-btn">Back <span class="glyphicon glyphicon-arrow-left"></span></button>
+        <div class="btn-group">
+          <button class="back-btn">Back <span class="glyphicon glyphicon-arrow-left"></span></button>
+          <button class="follow-btn">Follow <span class="glyphicon glyphicon-user"></span></button>
+        </div>
         <ul class="list-group"></ul>
   	  </div>		
-<!-- 		<footer>
+		<footer class="footer">
  			<a href="#">View Repository</a>
   			<p>Adam Stein &copy 2016</p>
-  		</footer>	 -->
+  		</footer>	
   		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>   
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   		<script type="text/javascript" src="main.js"></script>
