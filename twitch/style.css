@@ -47,7 +47,7 @@ img:hover{
   color:#d4f975;
 }
 
-.footer{
+footer{
   position: absolute;
   bottom: 0;
   text-align: center;
@@ -55,7 +55,7 @@ img:hover{
   width: 100%;
   background: #cadbd8;
 }
-.footer p{
+footer p{
   margin:0;
 }
 @media screen and (max-width: 950px) {
@@ -65,13 +65,18 @@ img:hover{
   }
    nav{
     padding: 10px;
+    font-size: .9em;
   }
 }
 @media screen and (max-width: 400px) {
   .container {
     font-size: .8em;
     margin-top: 140px;
-    width: 95%;
+    width: 98%;
+  }
+  nav{
+    padding: 1px;
+    font-size:.7em;
   }
 }
 
