@@ -10,10 +10,6 @@ body {
   overflow-x:hidden;
   overflow-y:scroll;
 }
-.hide-scroll{
- overflow-y:hidden; 
-}
-
 
 @keyframes mid {
   0% {
@@ -28,7 +24,7 @@ ul li {
 }
 
 .landing {
-  background: url("https://pixabay.com/static/uploads/photo/2015/03/26/10/48/water-692027_960_720.jpg") center fixed;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/0/0d/View_from_Newfound_Gap_Road%2C_Great_Smoky_Mountains_National_Park%2C_NC.jpg") center fixed;
   background-size: cover;
   width: 100%;
   min-height: 760px;
@@ -37,6 +33,7 @@ ul li {
 
 .nav-options {
   position: relative;
+  opacity: 0.8;
   text-align: center;
   width: 100%;
   z-index: 1;
@@ -47,34 +44,14 @@ ul li {
     text-align: left;
   }
 }
-.nav-options ul {
+.nav-options .wrapper {
   background: #141230;
-  opacity: .8;
-  padding-top: 160px;
+  opacity: .7;
+  padding-top: 100px;
   width: 100%;
   min-height: 750px;
 }
-.nav-options ul li a {
-  color: #cce8ff;
-  cursor: pointer;
-}
-.nav-options ul li:hover {
-  color: white;
-  text-decoration: underline;
-}
-.nav-options h1 {
-  color: white;
-  text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.8);
-  font-family: 'montserrat';
-  margin-bottom: 30px;
-  font-size: 4em;
-  cursor: pointer;
-}
-.nav-options h1:hover {
-  color: #9B9CBD;
-  font-size: 4.1em;
-  text-decoration: underline;
-}
+
 
 nav {
   background: black;
