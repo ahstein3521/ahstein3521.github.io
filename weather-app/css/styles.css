@@ -1,11 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Anton|Bree+Serif|Cuprum);
-
+html {
+  position: relative;
+  min-height: 100%;
+}
 body {
+  width: 100%;
+  margin-bottom:60px;
   font-family: 'Cuprum', sans-serif;
-  margin: 0;
   padding:0;
   width: 100%;
-  min-height: 700px;
   text-align: center;
   overflow: hidden;
 }
@@ -33,11 +36,25 @@ body {
   font-family: 'Bree Serif', serif;
   text-transform: capitalize;
 }
- footer{
-  margin: 0;
-  width:100%;
+.footer{
   position: absolute;
-  background: lightgrey;
-  opacity: .8;
-  bottom: 0px; 
- }
+  bottom: 0;
+  text-align: center;
+  height:60px;
+  width: 100%;
+  background: #cadbd8;
+  opacity: 0.8;
+}
+.footer p{
+  margin:0;
+  padding: 0;
+  font-size:1em;
+}
+@media screen and (max-width: 700px){
+  .data{
+    width: 95%;
+  }
+  .data, .footer{
+    font-size:.9em;
+  }
+}
