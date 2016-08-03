@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Pomodoro Clock</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="clock">
+			<div class="screen">
+				<h1>25:00</h1>
+			</div>
+			<div class="control-panel row">
+				<div class="col-xs-4">
+					<div class="container">
+						<p><strong>Session</strong></p>
+						<button class="incrementor" onclick="increment('Session',1)">
+							<span class="glyphicon glyphicon-chevron-up"></span>
+						</button>
+						<span class="time-display-Session">25</span>
+						<button class="incrementor" onclick="increment('Session',-1)">
+							<span class="glyphicon glyphicon-chevron-down"></span>
+						</button>
+					</div>		
+				</div>
+				<div class="col-xs-4">
+					<div class="btn-group">
+						<button class="btn-success play">
+							<span class="glyphicon glyphicon-play"></span>
+						</button>
+						<button class="btn-warning reset">Reset</button>
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<div class="container">
+						<p><strong>Break</strong></p>
+						<button class="incrementor" onclick="increment('Break',1)">
+							<span class="glyphicon glyphicon-chevron-up"></span>
+						</button>
+						<span class="time-display-Break">5</span>
+						<button class="incrementor" onclick="increment('Break',-1)">
+							<span class="glyphicon glyphicon-chevron-down"></span>
+						</button>
+					</div>
+				</div>	
+			</div>
+		</div>
+ 	</div>
+ 	<footer class="footer">
+ 		<a href="#">View Repository</a>
+  		<p>Adam Stein 2016&copy</p>
+  	</footer>
+ 	<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script> 	
+ 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+ 	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
