@@ -14,13 +14,13 @@
 				<h1>25:00</h1>
 			</div>
 			<div class="control-panel row">
-				<div class="col-xs-4">
-					<div class="container">
-						<p><strong>Session</strong></p>
+				<div class="col-xs-4">	
+					<p><strong>Session</strong></p>
+					<span class="time-display-Session">25</span>
+					<div>
 						<button class="incrementor" onclick="increment('Session',1)">
 							<span class="glyphicon glyphicon-chevron-up"></span>
 						</button>
-						<span class="time-display-Session">25</span>
 						<button class="incrementor" onclick="increment('Session',-1)">
 							<span class="glyphicon glyphicon-chevron-down"></span>
 						</button>
@@ -28,19 +28,22 @@
 				</div>
 				<div class="col-xs-4">
 					<div class="btn-group">
-						<button class="btn-success play">
+						<br/>
+						<button class="btn-success btn-md play">
 							<span class="glyphicon glyphicon-play"></span>
 						</button>
-						<button class="btn-warning reset">Reset</button>
+						<button class="btn-warning btn-md reset">
+							<span class="glyphicon glyphicon-stop"></span>
+						</button>
 					</div>
 				</div>
 				<div class="col-xs-4">
-					<div class="container">
-						<p><strong>Break</strong></p>
+					<p><strong>Break</strong></p>
+					<span class="time-display-Break">5</span>
+					<div>
 						<button class="incrementor" onclick="increment('Break',1)">
 							<span class="glyphicon glyphicon-chevron-up"></span>
 						</button>
-						<span class="time-display-Break">5</span>
 						<button class="incrementor" onclick="increment('Break',-1)">
 							<span class="glyphicon glyphicon-chevron-down"></span>
 						</button>
@@ -49,6 +52,7 @@
 			</div>
 		</div>
  	</div>
+ 	
  	<footer class="footer">
  		<a href="#">View Repository</a>
   		<p>Adam Stein 2016&copy</p>
