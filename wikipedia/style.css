@@ -1,0 +1,82 @@
+@import url(https://fonts.googleapis.com/css?family=Dosis);
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background: #7A7ADA;
+  margin-bottom: 50px;
+  width: 100%;
+  font-family:"dosis";
+}
+.navbar{
+	background: #b0b725;
+	text-align: center;
+}
+.container{
+	width:60%;
+	margin-top: 50px;
+}
+.search-results{	
+	padding: 30px 17px 30px 16px;
+	background: #d3d6d6;
+	box-shadow: inset -4px -21px 61px 2px rgba(66, 17, 17, 0.6);
+}
+.article-btn{
+	color: #DA5151;
+	background: none;
+	border: none;
+	font-size: 1.7em;	
+}
+.close{
+	margin-right: 5px;
+	color:#7d0e18;
+	opacity: 1;
+}
+.modal-iframe{
+	width: 70%;
+	margin:30px auto;
+	overflow: hidden;
+}
+.article{
+	width: 100%;
+	min-height: 400px;
+}
+input{
+	margin-left:6px;
+	text-indent: 7px;
+}
+
+img{
+	margin-top:10%;
+	width: 50%;
+}
+footer{
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  height:50px;
+  width: 100%;
+  background: #cadbd8;
+}
+footer p{
+  margin:0;
+}
+@media screen and (max-width: 760px){
+	.container{
+		width:98%;
+	}
+	.modal-iframe{
+		width: 90%;
+	}
+	img{
+		margin-top:30%;
+	}
+}
+@media screen and (max-width: 400px){
+	.container{
+		margin-top:70px;
+	}
+}
