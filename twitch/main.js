@@ -1,36 +1,38 @@
-var DefaultUserList = ['medrybw',"freecodecamp", "storbeck", "terakilobyte",
-						"habathcx","brunofin","riotgames","RobotCaleb",
-						"thomasballinger","noobs2ninjas","beohoff"];
+const DefaultUserList = ['medrybw',"freecodecamp", "billy","nightblue3","syndicate",
+						"riotgames","RobotCaleb","imaqtpie","esl_csgo","sodapoppin"];
 
-var EndPoint='https://api.twitch.tv/kraken/';
-var Default_IMG="https://placeholdit.imgix.net/~text?txtsize=33&txt=ImageNotAvailable&w=300&h=300"; 
-var ScrollTop=70;
+const EndPoint='https://api.twitch.tv/kraken/';
+const Default_IMG="https://placeholdit.imgix.net/~text?txtsize=33&txt=ImageNotAvailable&w=300&h=300"; 
 
-var ListItem=function(props){
+const ListItem=function(props){
 	var img=props.logo? props.logo: Default_IMG;
 	var status=props.status? props.status : " ";
-    
-  return("<li onmouseenter='showButton(this,true)' onmouseleave='showButton(this,false)' class='list-group-item list-group-item-"+
-  		 props.colorCode+"'><span class='badge' onclick='removeListItem(this)'>X</span>"+ 
-         "<a href=https:'//www.twitch.tv/"+props.name+"' target='_blank'><img src='"+img+"' class='img'/>"
-         +"<p><strong>"+props.display_name+"</strong></p></a><span>"+status+"</span></p></li>")
+    var _class=props.unfollowed? " search-result": "";
+
+
+  return("<li  class='list-group-item list-group-item-"+props.colorCode+_class+
+  		"'><span class='badge'>X</span><a href='https://www.twitch.tv/"+props.name+
+  		"' target='_blank'><img src='"+img+"' class='img'/><p><strong>"+props.display_name+
+  		"</strong></p></a><span>"+status+"</span></p></li>")
 }
 
-var Option=(val)=>{ return "<option value="+val+">"}
+const Option=(val)=>{ return "<option value="+val+">"}
 
 
-var UserList=function(){
+const UserList=function(){
   this.totalUsers=[];
   this.options=["All","Online","Offline"].concat(DefaultUserList);
   this.searchResult={};//temporary variable 
 }
 
 UserList.prototype.init=function(){
+	
 	if(typeof localStorage["twitch_users"]!="undefined"){
 		this.totalUsers=JSON.parse(localStorage.getItem("twitch_users"));
 		this.options=JSON.parse(localStorage.getItem("menu-options"));
 		this.render(this.totalUsers);
-	}else{
+	}
+	else{
 		localStorage.setItem("menu-options",JSON.stringify(this.options));
 		this.fetch(DefaultUserList);
 	}
@@ -71,6 +73,7 @@ UserList.prototype.fetch=function(USERS){
 	           		arr.sort((a,b)=>{return b.order-a.order})
 	    		 	
 	    		 	if(USERS.length==1){
+	    		 		user.unfollowed=true;
 	    		 		return _this.renderQuery(user);
 	    		 	} 
 	    		    return _this.update(arr);
@@ -87,6 +90,7 @@ UserList.prototype.removeUser=function(index,option){
 }
 
 UserList.prototype.followUser=function(){
+	this.searchResult.unfollowed=false;
 	this.totalUsers.push(this.searchResult);
 	this.totalUsers.sort((a,b)=>{return b.order-a.order});
     this.update(this.totalUsers);
@@ -135,11 +139,13 @@ UserList.prototype.removeOption=function(opt){
 	localStorage.setItem("menu-options",JSON.stringify(newList));	
 }
 
-var userlist=new UserList();
+
+let userlist=new UserList();
 userlist.init();
 
 
 function showButton(item,buttonIsVisible){
+   if($(item).hasClass("search-result")) return
    let opacity=buttonIsVisible? "0.8":"0";
    $(item).children(".badge").css("opacity",opacity);
 }
@@ -147,14 +153,13 @@ function showButton(item,buttonIsVisible){
 function removeListItem(item){
 	var query=$(item).siblings("a").children("p").children("strong").text();
 	var index=userlist.getIndex(query);
-	console.log(query);
 
 	return userlist.removeUser(index,query);
 }
 
 
 
-$(".search-btn").click(function(e){
+$(".search-btn").on("click",function(e){
 	var query=$("#user-options").val();
 	var index=userlist.getIndex(query);
 	e.preventDefault();
@@ -174,11 +179,16 @@ $(".search-btn").click(function(e){
 	}
 })
 
-$(".back-btn").click(function(){
+$(".list-group-item").on("mouseenter",function(){showButton(this,true);})
+					 .on("mouseleave",function(){showButton(this,false)});
+
+$(".badge").on("click",function(){ removeListItem(this)});					 
+
+$(".back-btn").on("click",function(){
 	$(".follow-btn").css("opacity","0");
 	userlist.render(userlist.totalUsers);
 })
-$(".follow-btn").click(function(){
+$(".follow-btn").on("click",function(){
 	$(this).css("opacity","0");
    userlist.followUser();
    userlist.render(userlist.totalUsers)
@@ -186,7 +196,7 @@ $(".follow-btn").click(function(){
 
 $(document).scroll(function(){
 	var top=$(this).scrollTop();
-	if(top>ScrollTop){
+	if(top>70){
 		$("nav").css("background","#dfdaff").css("box-shadow","2px 2px 2px rgba(0,0,0,0.6)")
 		$(".search-btn").css("color","black");
 	}else{
