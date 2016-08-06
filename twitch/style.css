@@ -46,7 +46,11 @@ img:hover{
 .back-btn:hover, .follow-btn:hover{
   color:#d4f975;
 }
-
+.search-result{
+  background: white;
+  width: 70%;
+  
+}
 footer{
   position: absolute;
   bottom: 0;

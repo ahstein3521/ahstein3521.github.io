@@ -4,17 +4,14 @@ const DefaultUserList = ['medrybw',"freecodecamp", "billy","nightblue3","syndica
 const EndPoint='https://api.twitch.tv/kraken/';
 const Default_IMG="https://placeholdit.imgix.net/~text?txtsize=33&txt=ImageNotAvailable&w=300&h=300"; 
 
-const ListItem=function(props){
+const ListItem=function(props,enter,leave){
 	var img=props.logo? props.logo: Default_IMG;
 	var status=props.status? props.status : " ";
-    var _class=props.unfollowed? " search-result": "";
-
-
-  return("<li  class='list-group-item list-group-item-"+props.colorCode+_class+
-  		"'><span class='badge'>X</span><a href='https://www.twitch.tv/"+props.name+
-  		"' target='_blank'><img src='"+img+"' class='img'/><p><strong>"+props.display_name+
-  		"</strong></p></a><span>"+status+"</span></p></li>")
+    
+  return("<li class='list-group-item list-group-item-"+props.colorCode+"' onmouseenter='"+enter+"' onmouseleave='"+leave+"'><span class='badge'>X</span><a href='https://www.twitch.tv/"+
+  		 props.name+"' target='_blank'><img src='"+img+"' class='img'/><p><strong>"+props.display_name+"</strong></p></a><span>"+status+"</span></p></li>")
 }
+
 
 const Option=(val)=>{ return "<option value="+val+">"}
 
@@ -73,7 +70,6 @@ UserList.prototype.fetch=function(USERS){
 	           		arr.sort((a,b)=>{return b.order-a.order})
 	    		 	
 	    		 	if(USERS.length==1){
-	    		 		user.unfollowed=true;
 	    		 		return _this.renderQuery(user);
 	    		 	} 
 	    		    return _this.update(arr);
@@ -90,7 +86,6 @@ UserList.prototype.removeUser=function(index,option){
 }
 
 UserList.prototype.followUser=function(){
-	this.searchResult.unfollowed=false;
 	this.totalUsers.push(this.searchResult);
 	this.totalUsers.sort((a,b)=>{return b.order-a.order});
     this.update(this.totalUsers);
@@ -115,16 +110,16 @@ UserList.prototype.getIndex=function(query){
 
 UserList.prototype.render=function(listToRender){
 	var opacity=listToRender.length<this.totalUsers.length? "1":"0";
-	var list=listToRender.map((v)=>{return ListItem(v)}).join("")
+	var list=listToRender.map((v)=>{return ListItem(v,"showButton(this,true)","showButton(this,false)")})
 	 
-	$(".list-group").html(list)
+	$(".list-group").html(list.join(""));
 	$(".back-btn").css("opacity",opacity);
 }
 UserList.prototype.renderQuery=function(query){
 	$(".follow-btn").css("opacity","1");
 	$(".back-btn").css("opacity","1");
 	this.searchResult=query;	
-	this.render([query]);
+	$(".list-group").html(ListItem(query,"null","null"));
 }
 UserList.prototype.addOption=function(){
 	var newOption=this.searchResult.display_name;
@@ -145,8 +140,7 @@ userlist.init();
 
 
 function showButton(item,buttonIsVisible){
-   if($(item).hasClass("search-result")) return
-   let opacity=buttonIsVisible? "0.8":"0";
+   let opacity=buttonIsVisible && !$(item).hasClass("search-result")? "0.8":"0";
    $(item).children(".badge").css("opacity",opacity);
 }
 
@@ -179,8 +173,8 @@ $(".search-btn").on("click",function(e){
 	}
 })
 
-$(".list-group-item").on("mouseenter",function(){showButton(this,true);})
-					 .on("mouseleave",function(){showButton(this,false)});
+// $(".list-group-item").on("mouseenter",function(){showButton(this,true)})
+// 					 .on("mouseleave",function(){showButton(this,false)});
 
 $(".badge").on("click",function(){ removeListItem(this)});					 
 
