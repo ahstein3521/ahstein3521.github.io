@@ -1,0 +1,41 @@
+body{
+	width:100%;
+	padding:10px;
+}
+
+.ipod{
+	position: relative;
+	text-align: center;
+	padding-top:20px;
+	margin:70px auto 0;
+	background: #14132b;
+	border-radius: 10px;
+	width:300px;
+	height:350px;
+}
+.dropdown-menu li{
+	color:black;
+}
+.results{
+	margin:0px auto;
+	width:80%;
+}
+img{
+	width:100px;
+	height:100px;
+	margin-bottom: 10px;
+}
+.btn-group{
+	position: absolute;
+	top:250px;
+	left: 35%;
+}
+.link{
+	background: none;
+	border:none;
+	color:blue;
+}
+
+iframe{
+margin-left: -1000px;
+}
