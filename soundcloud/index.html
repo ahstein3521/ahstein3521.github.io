@@ -2,7 +2,7 @@
 <html>
   	<head>
   		<meta charset="utf-8">
-  		<title>Soundcloud Api</title>
+  		<title>Music Player</title>
     	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     	<link rel="stylesheet" type="text/css" href="style.css">
   	</head>
@@ -16,19 +16,21 @@
           	<li>No Saved playlists yet..</li>
           </ul>
         </div>
-      			<div>AISHA AISHA AISHA AISHA</div>	
+      			
 			</div>
           <div class='navbar-form pull-right'>
             <fieldset class='form-group'>
-              <input type="text"/>
-              <button class="search-btn">Search</button>
+              <input type="text" placeholder="Aisha Aisha Aisha"/>
+              <button class="search-btn" data-target=".playlist"  data-toggle="modal">Search</button>
             </fieldset>  
         </div>
         </div>   
       </nav>
       <div class="ipod">
         <div class="screen">
-        	<img class="img" src="https://i.ytimg.com/vi/ekYcOzXXX0Q/hqdefault.jpg"/>
+        	<img class="img" src="https://i1.sndcdn.com/artworks-000054832512-8zv6d9-large.jpg"/>
+        	<p class='title'><strong>Frank Zappa- Willie the Pimp</strong></p>
+        	<p class="track-listing">Track 1 of 1</p>
         </div> 
         <div class="btn-group">
 	        <button class="back btn-primary">
@@ -42,8 +44,19 @@
 	      	</button>      	
       	  </div>	
       </div>
-		<div class="results"></div>
-      <iframe name="player" src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/76067623&amp;auto_play=false&amp;hide_related=true&amp;'></iframe>
+	 		<div class="modal fade playlist" tabindex="-1"  aria-labelledby="myLargeModalLabel">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal">X</button>
+          </div>
+		      <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button class="btn-success load-playlist">Play</button>
+            <button class="btn-success save-playlist">Save to Library</button>
+          </div>
+        </div>
+		</div>	
+      <iframe name="player" src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/104570219&amp;auto_play=false&amp;hide_related=true&amp;'></iframe>
       
      
   		<script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
