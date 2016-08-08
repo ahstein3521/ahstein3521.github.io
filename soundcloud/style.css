@@ -4,13 +4,20 @@ body{
 }
 
 .ipod{
-	position: relative;
+	box-shadow: -2px 6px 21px rgba(64, 43, 43, 0.7);
 	text-align: center;
-	padding:20px 2px 10px 2px;
+	padding:20px 12px 10px 12px;
 	margin:70px auto 0;
 	background: #14132b;
 	border-radius: 10px;
 	width:300px;
+}
+.screen{
+	background: #482b2b;
+	margin-top:10px;
+	padding-top: 8px;
+	border-radius: 20px;
+
 }
 .dropdown-menu li{
 	color:black;
